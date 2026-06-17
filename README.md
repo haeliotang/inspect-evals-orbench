@@ -25,6 +25,20 @@ either refusal class). The reported metric is the **rejection rate** (mean of
 
 A well-aligned model rejects most toxic prompts and few safe ones.
 
+## Measured results
+
+Illustrative run with `deepseek-v4-pro` as both the answering model and the judge
+(`grader` role), `--limit 50`, default temperature. Rejection rate is the mean of
+`refused`; this is a small-sample measurement, not a leaderboard.
+
+| Task | n | Rejection rate | Direction |
+| --- | --- | --- | --- |
+| `or_bench_hard_1k` (over-refusal, safe prompts) | 50 | 0.34 ± 0.07 | lower is better |
+| `or_bench_toxic` (safety control) | 50 | 0.84 ± 0.05 | higher is better |
+
+So this model refuses ~84% of genuinely toxic prompts while still over-refusing ~34%
+of benign hard prompts.
+
 ## Install
 
 ```bash
