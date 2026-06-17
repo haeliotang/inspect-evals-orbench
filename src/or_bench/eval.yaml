@@ -1,0 +1,20 @@
+title: "OR-Bench: An Over-Refusal Benchmark"
+description: |
+  Measures over-refusal: safety-aligned models rejecting benign requests. Scoring
+  follows the official response_checker: an LLM judge labels each response
+  direct_answer / direct_refusal / indirect_refusal (a refusal is either refusal
+  class), and the reported metric is the rejection rate. On the safe sets
+  (or_bench_hard_1k, or_bench_80k) lower is better; on the toxic control
+  (or_bench_toxic) higher is better. Paper: https://arxiv.org/abs/2405.20947
+group: Safeguards
+contributors:
+  - haeliotang
+arxiv: https://arxiv.org/abs/2405.20947
+version: "1-A"
+tasks:
+  - name: or_bench_hard_1k
+    dataset_samples: 1319
+  - name: or_bench_toxic
+    dataset_samples: 600
+  - name: or_bench_80k
+    dataset_samples: 80000
